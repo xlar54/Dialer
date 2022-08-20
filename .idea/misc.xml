@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2495" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/drawable/contacts_border.xml" value="0.2495" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/drawable/gradient.xml" value="0.2495" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/layout/contacts.xml" value="0.25364583333333335" />
+        <entry key="..\:/Development/Android/Dialer/app/src/main/res/layout/dial_pad.xml" value="0.25364583333333335" />
+      </map>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
