@@ -21,27 +21,27 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var tv_number: TextView
+    private lateinit var tvNumber: TextView
     private lateinit var listView: ListView
-    private lateinit var b_1: Button
-    private lateinit var b_2: Button
-    private lateinit var b_3: Button
-    private lateinit var b_4: Button
-    private lateinit var b_5: Button
-    private lateinit var b_6: Button
-    private lateinit var b_7: Button
-    private lateinit var b_8: Button
-    private lateinit var b_9: Button
-    private lateinit var b_0: Button
-    private lateinit var b_clear: Button
-    private lateinit var b_call: Button
+    private lateinit var b1: Button
+    private lateinit var b2: Button
+    private lateinit var b3: Button
+    private lateinit var b4: Button
+    private lateinit var b5: Button
+    private lateinit var b6: Button
+    private lateinit var b7: Button
+    private lateinit var b8: Button
+    private lateinit var b9: Button
+    private lateinit var b0: Button
+    private lateinit var bClear: Button
+    private lateinit var bCall: Button
     private var number = ""
-    private var StoreContacts: ArrayList<String>? = null
+    private var storeContacts: ArrayList<String>? = null
     private var arrayAdapter: ArrayAdapter<String>? = null
 
     private var cursor: Cursor? = null
     private var name: String? = null
-    private var phonenumber: String? = null
+    private var phoneNumber: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,13 +54,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             ActivityCompat.requestPermissions(this@MainActivity, arrayOf(Manifest.permission.READ_CONTACTS), CONTACTS_PERMISSIONS_REQUEST)
         }
-        StoreContacts = ArrayList()
+        storeContacts = ArrayList()
         listView = findViewById(R.id.listview1)
-        GetContactsIntoArrayList()
-        StoreContacts?.let { Collections.sort(it, java.lang.String.CASE_INSENSITIVE_ORDER) }
+        getContactsIntoArrayList()
+        storeContacts?.let { Collections.sort(it, java.lang.String.CASE_INSENSITIVE_ORDER) }
 
         //arrayAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.contacts, R.id.textview, StoreContacts);
-        arrayAdapter = object : ArrayAdapter<String>(this@MainActivity, R.layout.contacts, R.id.textview, StoreContacts!!) {
+        arrayAdapter = object : ArrayAdapter<String>(this@MainActivity, R.layout.contacts, R.id.textview, storeContacts!!) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 // Get the current item from ListView
                 val view = super.getView(position, convertView, parent)
@@ -77,91 +77,91 @@ class MainActivity : AppCompatActivity() {
 
         val mp = MediaPlayer.create(applicationContext, R.raw.dtmf1)
 
-        listView.setAdapter(arrayAdapter)
-        tv_number = findViewById(R.id.tv_number)
+        listView.adapter = arrayAdapter
+        tvNumber = findViewById(R.id.tv_number)
         number = "\n"
-        tv_number.setText(number)
-        b_1 = findViewById(R.id.b_1)
-        b_2 = findViewById(R.id.b_2)
-        b_3 = findViewById(R.id.b_3)
-        b_4 = findViewById(R.id.b_4)
-        b_5 = findViewById(R.id.b_5)
-        b_6 = findViewById(R.id.b_6)
-        b_7 = findViewById(R.id.b_7)
-        b_8 = findViewById(R.id.b_8)
-        b_9 = findViewById(R.id.b_9)
-        b_0 = findViewById(R.id.b_0)
-        b_call = findViewById(R.id.b_call)
-        b_clear = findViewById(R.id.b_clear)
+        tvNumber.text = number
+        b1 = findViewById(R.id.b_1)
+        b2 = findViewById(R.id.b_2)
+        b3 = findViewById(R.id.b_3)
+        b4 = findViewById(R.id.b_4)
+        b5 = findViewById(R.id.b_5)
+        b6 = findViewById(R.id.b_6)
+        b7 = findViewById(R.id.b_7)
+        b8 = findViewById(R.id.b_8)
+        b9 = findViewById(R.id.b_9)
+        b0 = findViewById(R.id.b_0)
+        bCall = findViewById(R.id.b_call)
+        bClear = findViewById(R.id.b_clear)
 
-        b_1.setOnClickListener {
+        b1.setOnClickListener {
             playMedia(mp, R.raw.dtmf1)
             number += "1"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_2.setOnClickListener {
+        b2.setOnClickListener {
             playMedia(mp, R.raw.dtmf2)
             number += "2"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_3.setOnClickListener {
+        b3.setOnClickListener {
             playMedia(mp, R.raw.dtmf3)
             number += "3"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_4.setOnClickListener {
+        b4.setOnClickListener {
             playMedia(mp, R.raw.dtmf4)
             number += "4"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_5.setOnClickListener {
+        b5.setOnClickListener {
             playMedia(mp, R.raw.dtmf5)
             number += "5"
-            tv_number.setText(number)
+            tvNumber.text = number
         }
-        b_6.setOnClickListener {
+        b6.setOnClickListener {
             playMedia(mp, R.raw.dtmf6)
             number += "6"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_7.setOnClickListener {
+        b7.setOnClickListener {
             playMedia(mp, R.raw.dtmf7)
             number += "7"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_8.setOnClickListener {
+        b8.setOnClickListener {
             playMedia(mp, R.raw.dtmf8)
             number += "8"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_9.setOnClickListener {
+        b9.setOnClickListener {
             playMedia(mp, R.raw.dtmf9)
             number += "9"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_0.setOnClickListener {
+        b0.setOnClickListener {
             playMedia(mp, R.raw.dtmf0)
             number += "0"
-            tv_number.text = number
+            tvNumber.text = number
         }
-        b_call.setOnClickListener {
+        bCall.setOnClickListener {
             playMedia(mp, R.raw.dtmfpound)
             val intent = Intent(Intent.ACTION_CALL)
             //number = number.replaceAll("[^\\d]", "" );
             intent.data = Uri.parse("tel:$number")
             startActivity(intent)
         }
-        b_clear.setOnClickListener {
+        bClear.setOnClickListener {
             playMedia(mp, R.raw.dtmfstar)
             number = "\n"
-            tv_number.text = number
+            tvNumber.text = number
         }
         listView.onItemClickListener =
             OnItemClickListener { _: AdapterView<*>?, _: View?, position: Int, _: Long ->
                 //Toast.makeText(MainActivity.this, "You Clicked at " +StoreContacts.get(position), Toast.LENGTH_SHORT).show();
-                val num = StoreContacts!![position] //StoreContacts.get(position).substring(StoreContacts.get(position).indexOf("\n")+1);
-                tv_number.setText(num)
-                number = StoreContacts!![position].substring(StoreContacts!![position].indexOf("\n") + 1).replace("[^\\d]".toRegex(), "")
+                val num = storeContacts!![position] //StoreContacts.get(position).substring(StoreContacts.get(position).indexOf("\n")+1);
+                tvNumber.text = num
+                number = storeContacts!![position].substring(storeContacts!![position].indexOf("\n") + 1).replace("[^\\d]".toRegex(), "")
             }
     }
 
@@ -219,16 +219,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun GetContactsIntoArrayList() {
+    private fun getContactsIntoArrayList() {
         cursor = contentResolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null)
         while (cursor!!.moveToNext()) {
             val nameIndex = cursor!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
             val phoneNumberIndex = cursor!!.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
             if (nameIndex > 0) name = cursor!!.getString(nameIndex)
-            if (phoneNumberIndex > 0) phonenumber = cursor!!.getString(phoneNumberIndex)
-            StoreContacts!!.add("""
+            if (phoneNumberIndex > 0) phoneNumber = cursor!!.getString(phoneNumberIndex)
+            storeContacts!!.add("""
     $name
-    $phonenumber
+    $phoneNumber
     """.trimIndent())
         }
         cursor!!.close()
